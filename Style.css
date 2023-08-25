@@ -45,6 +45,13 @@ h5 {
   font-size: var(--header4);
 }
 
+.flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 ul {
   list-style: none;
 }
