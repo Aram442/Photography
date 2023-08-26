@@ -32,13 +32,15 @@ html {
 
 h1 {
   font-size: var(--header1);
+  font-family: "Vibes", sans-serif;
 }
 
 li,
 button,
 input,
 label,
-p {
+p,
+a {
   font-size: var(--text);
 }
 
@@ -55,16 +57,42 @@ h5 {
   font-size: var(--header4);
 }
 
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
 .flex {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
+body {
+  font-family: "Ruhl", sans-serif; /*using sans serif to if any problem in the font*/
+}
+.main-head {
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+  /*           x   y   blure    */
+}
+#logo {
+  flex: 1 1 20rem;
+}
+nav {
+  width: 90%; /*using % to work with Screen Size*/
+  margin: auto; /*to Auto margain in the Right and Left of the Screen*/
+  min-height: 10vh;
+  display: flex;
+  align-items: center;
 
-ul {
-  list-style: none;
+  padding: 2rem 0rem;
 }
-a {
-  text-decoration: none;
+nav ul {
+  display: flex;
+  flex: 1 1 20rem;
+  justify-content: space-around;
 }
+
+
