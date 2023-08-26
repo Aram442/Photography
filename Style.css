@@ -72,10 +72,10 @@ a {
 }
 body {
   font-family: "Ruhl", sans-serif; /*using sans serif to if any problem in the font*/
-  animation: plant-apiare 1s ease-in-out; /*Calling Animation to Aplay in the Plant Image*/
+  animation: plant-apiare 1s ease-in-out forwards; /*Calling Animation to Aplay in the Plant Image*/
 }
 
-/*MAIN HERD SECTION ####################################################################################################*/
+/*NAV SECTION ####################################################################################################*/
 .main-head {
   box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
   /*           x   y   blure    */
@@ -84,9 +84,7 @@ body {
   /*when I create linear background to the image that some of navbar shadow is disapeared, 
   then I do z-index: 2 to go to front the shadow and possitoin relative to relative in the first state*/
 }
-#logo {
-  flex: 1 1 20rem;
-}
+
 nav {
   width: 90%; /*using % to work with Screen Size*/
   margin: auto; /*to Auto margain in the Right and Left of the Screen*/
@@ -95,13 +93,17 @@ nav {
   align-items: center;
   padding: 2rem 0rem;
 }
-nav ul {
+#logo {
+  flex: 1 1 20rem;
+}
+.nav-links {
   display: flex;
   flex: 1 1 20rem;
   justify-content: space-around;
 }
 
 .hero {
+  min-height: 90vh;
   width: 95%; /*90vh = 90%*/
   margin: 0 0 0 auto;
   display: flex;
@@ -132,14 +134,12 @@ nav ul {
   ); /*my image is transparent background I will make my background to it*/
   position: relative;
   z-index: 1;
-  overflow: hidden; /*to can not scroll the screen*/
 }
 
-.elena {
+.hero-elena {
   width: 100%;
   height: 100%;
-  object-fit: cover; /*to not compresing the picture, to fit the picture in the cover area*/
-  z-index: 1;
+  object-fit: cover;
 }
 
 .plant {
@@ -147,26 +147,19 @@ nav ul {
   bottom: 0;
   left: -20%;
   z-index: -1;
-  /* transform: translateY(10%) rotateZ(-10deg) rotate(-90deg); */
-  animation: plant-entrance 0.5s ease-in-out 0.5s forwards;
-
-  /* animation: plant-entrance 0.5s ease-in-out 0.5s forwards,
-    plant-shake 2.5s infinite ease alternate-reverse 2s; */
+  transform: translateY(10%) rotateZ(-10deg) rotateX(-90deg);
+  animation: plant-entrance 1.5s ease-in-out 0.5s forwards,
+    plant-shake 2.5s infinite ease alternate-reverse 2s;
+  transform-origin: bottom;
+  max-height: 80%;
 }
-.plant-1 {
-  left: 50%;
-  width: 60%;
-  height: 40%;
-}
-.plant-2 {
-  left: 0%;
-  bottom: 20%;
-  width: 100%;
-  height: 100%;
+.plant2 {
+  left: 40%;
 }
 
-/*ANIMATION  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
-@keyframes plant-opening {
+/*ANIMATIONS */
+
+@keyframes opening {
   from {
     opacity: 0;
   }
@@ -174,21 +167,20 @@ nav ul {
     opacity: 1;
   }
 }
+
 @keyframes plant-entrance {
   from {
-    transform: translateY(10%);
+    transform: translateY(10%) rotateZ(-10deg) rotateX(-90deg);
   }
   to {
-    transform: translateY(0%);
+    transform: translateY(0%) rotateZ(0deg) rotateX(0deg);
   }
 }
-
-/*to Shake the planet*/
-/* @keyframes plant-shake {
+@keyframes plant-shake {
   from {
     transform: rotateZ(-5deg);
   }
   to {
-    ransform: rotateZ(0deg);
+    transform: rotateZ(0deg);
   }
-} */
+}
